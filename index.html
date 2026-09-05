@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Little Sparkle For You ✨</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffdde1 0%, #ee9ca7 100%);
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Floating background hearts */
+    .bg-heart {
+      position: absolute;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    }
+
+    .container {
+      perspective: 1000px;
+      z-index: 10;
+      width: 90%;
+      max-width: 380px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 30px 20px;
+      text-align: center;
+      box-shadow: 0 15px 35px rgba(238, 156, 167, 0.4);
+      border: 2px solid rgba(255, 255, 255, 0.8);
+      transition: all 0.4s ease;
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      background: #ffb6c1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 45px;
+      box-shadow: 0 8px 20px rgba(255, 77, 109, 0.3);
+      animation: pulse 2s infinite ease-in-out;
+    }
+
+    h1 {
+      color: #ff477e;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #6c757d;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .secret-box {
+      background: #fff;
+      border: 2px dashed #ff9ebb;
+      border-radius: 16px;
+      padding: 15px;
+      margin-bottom: 20px;
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ff5c8a;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    button {
+      background: #ff477e;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255, 71, 126, 0.3);
+      transition: all 0.2s ease;
+      flex: 1;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      background: #ff2a6d;
+    }
+
+    button.secondary {
+      background: #ffffff;
+      color: #ff477e;
+      border: 2px solid #ff477e;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Hearts Background -->
+  <div class="bg-heart" style="left: 10%; animation-delay: 0s;">🌸</div>
+  <div class="bg-heart" style="left: 25%; animation-delay: 2s;">💖</div>
+  <div class="bg-heart" style="left: 60%; animation-delay: 1s;">✨</div>
+  <div class="bg-heart" style="left: 85%; animation-delay: 3s;">🎀</div>
+
+  <div class="container">
+    <div class="card">
+      <div class="avatar" id="emoji">💌</div>
+      <h1 id="title">Special Message</h1>
+      <p class="subtitle">Tap below to reveal the surprises!</p>
+
+      <div class="secret-box" id="messageBox">
+        Click "Next Reason" to start reading... 💭
+      </div>
+
+      <div class="btn-group">
+        <button onclick="nextReason()">Next Reason 🌸</button>
+        <button class="secondary" onclick="sendLove()">click me<3 🎀</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const reasons = [
+      "Your presence makes everything around feel so special :)",
+      "Your smile always makes me go blush🤭",
+      "ur editing skills makes me jealous sometimes hihi🫣✨",
+      "your presence is the greatest comfort to me and will always ❤️",
+      "i just tried to make this and it's nothing really much but yaaya 🤧🎀",
+      "thankyou for staying with me, i hope u felt a lil tiny tini better by seeing this 😭🫂",
+      "i will love you always, mwuaahhhh!!🎀"
+    ];
+
+    const emojis = ["💌", "🌷", "💞", "🫣", "🎀","❤️","🫂"];
+
+    let index = 0;
+
+    function nextReason() {
+      index = (index + 1) % reasons.length;
+      document.getElementById("messageBox").innerText = reasons[index];
+      document.getElementById("emoji").innerText = emojis[index];
+    }
+
+    function sendLove() {
+      alert("hehe i jus tried something new for u, i hope u like it <iloveyou3🫶🏾");
+    }
+  </script>
+
+</body>
+</html>
